@@ -32,7 +32,7 @@ public static class StringExtensions
 			throw new ArgumentException("Invalid hex address format.");
 
 		Span<byte> checksum = stackalloc byte[4];
-		SHA256 sha256 = SHA256Pool.Rent();
+		SHA256 sha256 = Sha256Pool.Rent();
 		try
 		{
 			Span<byte> hash = stackalloc byte[32];
@@ -42,7 +42,7 @@ public static class StringExtensions
 		}
 		finally
 		{
-			SHA256Pool.Return(sha256);
+			Sha256Pool.Return(sha256);
 		}
 
 		Span<byte> addressWithChecksum = stackalloc byte[25];

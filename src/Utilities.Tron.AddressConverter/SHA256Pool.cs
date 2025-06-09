@@ -6,9 +6,9 @@ namespace Utilities.Tron.AddressConverter;
 /// <summary>
 /// Provides a pool of <see cref="SHA256"/> objects to reduce allocations.
 /// </summary>
-public static class SHA256Pool
+public static class Sha256Pool
 {
-	private static readonly DefaultObjectPool<SHA256> _pool = new(new SHA256PooledObjectPolicy());
+	private static readonly DefaultObjectPool<SHA256> _pool = new(new Sha256PooledObjectPolicy());
 
 	/// <summary>
 	/// Rents a <see cref="SHA256"/> instance from the pool.
@@ -22,7 +22,7 @@ public static class SHA256Pool
 	/// <param name="sha256">The <see cref="SHA256"/> instance to return.</param>
 	public static void Return(SHA256 sha256) => _pool.Return(sha256);
 
-	private class SHA256PooledObjectPolicy : PooledObjectPolicy<SHA256>
+	private sealed class Sha256PooledObjectPolicy : PooledObjectPolicy<SHA256>
 	{
 		/// <inheritdoc/>
 		public override SHA256 Create() => SHA256.Create();
