@@ -90,7 +90,7 @@ stages:
         verbosity: 'Verbose'
 
     # publish test report to azure pipeline
-    - task: PublishCodeCoverageResults@1
+    - task: PublishCodeCoverageResults@2
       condition: eq(variables['hasTestProjects'], 'true')
       displayName: Publish code coverage reports
       inputs:
