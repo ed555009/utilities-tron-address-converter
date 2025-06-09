@@ -7,6 +7,7 @@ stages:
   displayName: Production release
   variables:
   - group: utilities-tron-address-converter
+  - group: Nuget
 
   # Pack and upload package to NuGet
   jobs:
@@ -41,10 +42,13 @@ stages:
           - task: DotNetCoreCLI@2
             displayName: Upload package to NuGet
             inputs:
-              command: push
-              searchPatternPush: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.Tests.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg
-              nuGetFeedType: external
-              publishFeedCredentials: Nuget-github
+              # command: push
+              # searchPatternPush: $(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.Tests.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg
+              # nuGetFeedType: external
+              # publishFeedCredentials: Nuget-github
+              command: custom
+              custom: nuget
+              arguments: 'push $(Build.ArtifactStagingDirectory)/**/*.nupkg -s $(Nuget.ApiUrl) -k $(Nuget.ApiKey)'
 
   # Create tag
   - deployment: CreateTag
