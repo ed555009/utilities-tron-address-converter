@@ -41,7 +41,7 @@ public class StringExtensionsTests()
 
 	[Theory]
 	[InlineData("some-invalid-address")]
-	[InlineData("0x")]
+	[InlineData("TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t")]
 	public void ToTronAddress_WithInvalidAddress_ShouldThrow(string hexAddress)
 	{
 		// Given
