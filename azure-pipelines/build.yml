@@ -84,7 +84,7 @@ stages:
       condition: eq(variables['hasTestProjects'], 'true')
       displayName: Merge code coverage reports
       inputs:
-        reports: '**/*coverage.*.xml'
+        reports: '$(Agent.TempDirectory)/**/*coverage.*.xml'
         targetdir: '$(Pipeline.Workspace)/coverlet'
         reporttypes: 'Cobertura'
         verbosity: 'Verbose'
