@@ -38,7 +38,7 @@ stages:
               versionEnvVar: Build.Version
 
           # upload package
-          - task: NuGetCommand@2
+          - task: DotNetCoreCLI@2
             displayName: Upload package to NuGet
             inputs:
               command: push
