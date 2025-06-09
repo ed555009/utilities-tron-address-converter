@@ -67,7 +67,7 @@ stages:
       displayName: Build for code scanning
       inputs:
         projects: '$(Build.BuildProjects)'
-        arguments: '-c $(Build.BuildConfiguration) /p:Version=$(Build.Version)'
+        arguments: '-c $(Build.BuildConfiguration) -p:Version="$(Build.Version)"'
 
     # unit testing if test projects exist
     - task: DotNetCoreCLI@2
