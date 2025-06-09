@@ -33,7 +33,7 @@ stages:
             displayName: Pack
             inputs:
               command: pack
-              arguments: '-c $(Build.BuildConfiguration) -p:Version=$(Build.Version) -p:PackageVersion=$(Build.Version)'
+              arguments: '-c $(Build.BuildConfiguration) -p:Version="$(Build.Version)" -p:PackageVersion="$(Build.Version)"'
               packagesToPack: $(Build.BuildProjects)
               versioningScheme: byEnvVar
               versionEnvVar: Build.Version
