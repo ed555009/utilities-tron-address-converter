@@ -5,7 +5,7 @@ stages:
   condition: ne(variables['Build.Reason'], 'PullRequest')
   displayName: Build & Test
   variables:
-  - group: utilities-jwt-ed25519
+  - group: utilities-tron-address-converter
   - group: Sonarqube
 
   jobs:

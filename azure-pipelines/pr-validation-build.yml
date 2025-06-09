@@ -5,7 +5,7 @@ stages:
   condition: eq(variables['Build.Reason'], 'PullRequest')
   displayName: Build & Test for PR validation
   variables:
-  - group: utilities-jwt-ed25519
+  - group: utilities-tron-address-converter
 
   jobs:
   # Determine and set condition variables
