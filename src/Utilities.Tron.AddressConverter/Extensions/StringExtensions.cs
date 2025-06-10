@@ -42,7 +42,7 @@ public static class StringExtensions
 		}
 		finally
 		{
-			Sha256Pool.Return(sha256);
+			Sha256Pool.Release(sha256);
 		}
 
 		Span<byte> addressWithChecksum = stackalloc byte[25];
