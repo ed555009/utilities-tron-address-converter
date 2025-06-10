@@ -17,10 +17,10 @@ public static class Sha256Pool
 	public static SHA256 Rent() => _pool.Get();
 
 	/// <summary>
-	/// Returns a <see cref="SHA256"/> instance to the pool.
+	/// Release a <see cref="SHA256"/> instance to the pool.
 	/// </summary>
 	/// <param name="sha256">The <see cref="SHA256"/> instance to return.</param>
-	public static void Return(SHA256 sha256) => _pool.Return(sha256);
+	public static void Release(SHA256 sha256) => _pool.Return(sha256);
 
 	private sealed class Sha256PooledObjectPolicy : PooledObjectPolicy<SHA256>
 	{
